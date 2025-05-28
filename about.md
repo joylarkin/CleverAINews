@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About
-permalink: /about/
+permalink: /CleverAINews/about/
 ---
 
 <div class="about-content">
