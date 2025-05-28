@@ -1,0 +1,57 @@
+---
+layout: default
+title: About
+---
+
+<div class="about-content">
+  <h1>About Clever AI News</h1>
+  
+  <p>Welcome to Clever AI News, your curated source for the latest developments in Artificial Intelligence for 2025. Our mission is to provide clear, accurate, and insightful coverage of AI advancements, breakthroughs, and their impact on society.</p>
+
+  <h2>What We Cover</h2>
+  <ul>
+    <li>Latest AI Research and Developments</li>
+    <li>Industry News and Trends</li>
+    <li>AI Ethics and Policy</li>
+    <li>Practical Applications of AI</li>
+    <li>Interviews with AI Experts</li>
+  </ul>
+
+  <h2>Our Approach</h2>
+  <p>We believe in making AI news accessible to everyone. Our articles are written to be informative yet easy to understand, whether you're an AI professional or just curious about the field.</p>
+
+  <h2>Stay Connected</h2>
+  <p>Follow us for daily updates on the world of artificial intelligence. We're committed to bringing you the most relevant and interesting AI news of 2025.</p>
+</div>
+
+<style>
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-content h1 {
+  color: #00ff00;
+  margin-bottom: 2rem;
+}
+
+.about-content h2 {
+  color: #00ff00;
+  margin: 1.5rem 0 1rem;
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.about-content ul {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.about-content li {
+  margin-bottom: 0.5rem;
+}
+</style> 

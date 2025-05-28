@@ -6,26 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
-
-{% seo %}
+    {% seo %}
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    {% if page.image %}
+    <meta property="og:image" content="{{ page.image | absolute_url }}">
+    {% endif %}
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    {% if site.twitter.username %}
+    <meta name="twitter:site" content="@{{ site.twitter.username }}">
+    {% endif %}
   </head>
 
   <body>
-
-    <header>
-      <div class="container">
-        <a id="a-title" href="{{ '/' | relative_url }}">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        </a>
-        <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-
-        <section id="downloads">
-          {% if site.show_downloads %}
-            <a href="{{ site.github.zip_url }}" class="btn">Download as .zip</a>
-            <a href="{{ site.github.tar_url }}" class="btn">Download as .tar.gz</a>
-          {% endif %}
-          <a href="{{ site.github.repository_url }}" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
+    <header class="site-header">
+      <div class="header-content">
+        <h1 class="site-title">{{ site.title }}</h1>
+        <p class="site-description">{{ site.description }}</p>
+        <nav class="site-nav">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/archive" class="nav-link">Archive</a>
+        </nav>
       </div>
     </header>
 
@@ -34,5 +38,142 @@
         {{ content }}
       </section>
     </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Clever AI News</h3>
+          <p>Your source for AI news in 2025</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/archive">Archive</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <ul>
+            <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com" target="_blank">GitHub</a></li>
+            <li><a href="mailto:contact@example.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ site.time | date: '%Y' }} Clever AI News. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+    .site-header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+    }
+
+    .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .site-title {
+      font-size: 2.5rem;
+      margin: 0;
+      color: #00ff00;
+    }
+
+    .site-description {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      color: #ccc;
+    }
+
+    .site-nav {
+      margin-top: 1.5rem;
+    }
+
+    .nav-link {
+      color: #00ff00;
+      text-decoration: none;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #00ff00;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #00ff00;
+      color: #000;
+    }
+
+    .site-footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 3rem 0 1rem;
+      margin-top: 4rem;
+      border-top: 1px solid #333;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .footer-section h3 {
+      color: #00ff00;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #00ff00;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding: 1rem 2rem 0;
+      border-top: 1px solid #333;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    </style>
   </body>
 </html>

@@ -1,15 +1,46 @@
-
 title: Clever AI News
-description: Curated news about Artificial Intellgence for 2025
+description: Curated news about Artificial Intelligence for 2025
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll-remote-theme
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-paginate
-paginate: 2           # posts per page
+paginate: 5
 paginate_path: "/page/:num/"
 
+# SEO Settings
+url: "https://cleverainews.github.io" # Replace with your actual GitHub Pages URL
+baseurl: "" # Leave empty if your site is at the root of the domain
+
+# Social Media
+twitter:
+  username: cleverainews # Replace with your Twitter handle
+  card: summary_large_image
+
+# Site Author
+author:
+  name: Clever AI News
+  email: contact@example.com # Replace with your contact email
+  twitter: cleverainews # Replace with your Twitter handle
+
+# Default SEO Settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Clever AI News"
+      image: "/assets/images/default-social.jpg" # You'll need to create this image
+      share: true
+
+# Google Analytics
 google_analytics: [Your Google Analytics tracking ID]
+
+# Additional SEO Settings
+lang: en-US
+locale: en_US
 
  
