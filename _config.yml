@@ -10,8 +10,8 @@ paginate: 5
 paginate_path: "/page/:num/"
 
 # SEO Settings
-url: "https://cleverainews.github.io" # Replace with your actual GitHub Pages URL
-baseurl: "" # Leave empty if your site is at the root of the domain
+url: "https://joylarkin.github.io"
+baseurl: "/CleverAINews"
 
 # Social Media
 twitter:
