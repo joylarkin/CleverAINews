@@ -43,4 +43,7 @@ google_analytics: [Your Google Analytics tracking ID]
 lang: en-US
 locale: en_US
 
+# Permalink structure
+permalink: /research/ai/:year/:month/:day/:title.html
+
  
