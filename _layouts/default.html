@@ -29,6 +29,14 @@
           <a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
           <a href="{{ '/about/' | relative_url }}" class="nav-link">About</a>
           <a href="{{ '/archive/' | relative_url }}" class="nav-link">Archive</a>
+          <a href="{{ '/feed.xml' | relative_url }}" class="nav-link rss-link">
+            <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+            RSS
+          </a>
         </nav>
       </div>
     </header>
@@ -173,6 +181,21 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
+    }
+
+    .rss-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rss-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rss-link:hover .rss-icon {
+      stroke: #000;
     }
     </style>
   </body>
