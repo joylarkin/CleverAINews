@@ -5,16 +5,31 @@ paginate: 5
 ---
 
 <main class="site-content">
-  {% for post in paginator.posts %}
-    <article class="post-preview">
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-      </div>
-      <div class="post-excerpt">
-        {{ post.excerpt | strip_html | truncatewords: 50 }}
-      </div>
-    </article>
+  {% assign posts_by_year = paginator.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  
+  {% for year in posts_by_year %}
+    <div class="year-section">
+      <h2>{{ year.name }}</h2>
+      
+      {% assign posts_by_month = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
+      
+      {% for month in posts_by_month %}
+        <div class="month-section">
+          <h3>{{ month.name }}</h3>
+          <ul class="post-list">
+            {% for post in month.items %}
+              <li>
+                <span class="post-date">{{ post.date | date: "%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                <div class="post-excerpt">
+                  {{ post.excerpt | strip_html | truncatewords: 30 }}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
   {% endfor %}
 
   <div class="rss-feeds">
@@ -55,16 +70,67 @@ paginate: 5
 </main>
 
 <style>
-.post-preview {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid #333;
+.year-section {
+  margin-bottom: 3rem;
 }
 
-.post-meta {
+.year-section h2 {
+  color: #00ff00;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.month-section {
+  margin-bottom: 2rem;
+}
+
+.month-section h3 {
+  color: #00ff00;
+  margin-bottom: 1rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.post-list li:hover {
+  background: #1a1a1a;
+  border-color: #00ff00;
+}
+
+.post-date {
   color: #666;
+  margin-right: 1rem;
+  min-width: 2rem;
+}
+
+.post-list a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-list a:hover {
+  color: #00ff00;
+}
+
+.post-excerpt {
+  color: #ccc;
   font-size: 0.9rem;
-  margin: 0.5rem 0;
+  margin-top: 0.5rem;
 }
 
 .pagination {
