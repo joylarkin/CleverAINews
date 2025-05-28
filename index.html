@@ -38,21 +38,21 @@ paginate: 5
       <div class="feed-container">
         <h3>MIT Technology Review</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.technologyreview.com%2Ftopic%2Fartificial-intelligence%2Ffeed%2F&limit=3&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.technologyreview.com%2Ftopic%2Fartificial-intelligence%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js"></script>
         </div>
       </div>
       
       <div class="feed-container">
         <h3>AI News</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fartificialintelligence-news.com%2Ffeed%2F&limit=3&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fartificialintelligence-news.com%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js"></script>
         </div>
       </div>
       
       <div class="feed-container">
         <h3>Google AI Blog</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fai.googleblog.com%2Ffeeds%2Fposts%2Fdefault&limit=3&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fai.googleblog.com%2Ffeeds%2Fposts%2Fdefault&limit=2&showtitle=false&showicon=false&type=js"></script>
         </div>
       </div>
     </div>
@@ -159,7 +159,7 @@ paginate: 5
 
 .rss-feeds {
   margin: 3rem 0;
-  padding: 2rem;
+  padding: 1.5rem;
   background: #1a1a1a;
   border: 1px solid #333;
 }
@@ -167,25 +167,29 @@ paginate: 5
 .rss-feeds h2 {
   color: #00ff00;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .feed-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
 .feed-container {
   background: #222;
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid #333;
 }
 
 .feed-container h3 {
   color: #00ff00;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
 }
 
 .feed-content {
@@ -196,22 +200,32 @@ paginate: 5
   color: #fff;
   text-decoration: none;
   display: block;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #333;
-  transition: color 0.3s ease;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: #2a2a2a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .feed-content a:hover {
-  color: #00ff00;
+  background: #333;
+  border-color: #00ff00;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 255, 0, 0.1);
 }
 
 .feed-content a:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
   .feed-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .feed-container {
+    margin-bottom: 1rem;
   }
 }
 </style>
