@@ -6,7 +6,7 @@ title: AI Headlines
 # AI Headlines 
 
 
-### More headlines xx
+### More headlines 
 
 
 
