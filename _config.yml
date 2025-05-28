@@ -4,6 +4,11 @@ description: Curated news about Artificial Intellgence for 2025
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-paginate
+paginate: 5            # posts per page
+paginate_path: "/page/:num/"
 
 google_analytics: [Your Google Analytics tracking ID]
 
