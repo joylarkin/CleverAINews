@@ -38,21 +38,21 @@ paginate: 5
       <div class="feed-container">
         <h3>MIT Technology Review</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.technologyreview.com%2Ftopic%2Fartificial-intelligence%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.technologyreview.com%2Ftopic%2Fartificial-intelligence%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js&max=3"></script>
         </div>
       </div>
       
       <div class="feed-container">
         <h3>AI News</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fartificialintelligence-news.com%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fartificialintelligence-news.com%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js&max=3"></script>
         </div>
       </div>
       
       <div class="feed-container">
-        <h3>Google AI Blog</h3>
+        <h3>Nature AI</h3>
         <div class="feed-content">
-          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fai.googleblog.com%2Ffeeds%2Fposts%2Fdefault&limit=2&showtitle=false&showicon=false&type=js"></script>
+          <script src="https://rss.bloople.net/?url=https%3A%2F%2Fwww.nature.com%2Fsubjects%2Fartificial-intelligence%2Ffeed%2F&limit=2&showtitle=false&showicon=false&type=js&max=3"></script>
         </div>
       </div>
     </div>
@@ -206,6 +206,12 @@ paginate: 5
   border: 1px solid #333;
   border-radius: 4px;
   transition: all 0.3s ease;
+  max-height: 4.5em; /* Approximately 3 lines of text */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .feed-content a:hover {
