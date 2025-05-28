@@ -7,7 +7,7 @@ paginate: 5
 <main class="site-content">
   {% for post in paginator.posts %}
     <article class="post-preview">
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
       <div class="post-meta">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
       </div>
@@ -19,11 +19,11 @@ paginate: 5
 
   <nav class="pagination">
     {% if paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path }}" class="previous">← Previous</a>
+      <a href="{{ paginator.previous_page_path | relative_url }}" class="previous">← Previous</a>
     {% endif %}
     <span class="page-number">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
     {% if paginator.next_page %}
-      <a href="{{ paginator.next_page_path }}" class="next">Next →</a>
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next">Next →</a>
     {% endif %}
   </nav>
 </main>

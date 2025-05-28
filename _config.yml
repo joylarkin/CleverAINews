@@ -44,6 +44,12 @@ lang: en-US
 locale: en_US
 
 # Permalink structure
-permalink: /research/ai/:year/:month/:day/:title.html
+permalink: /:categories/:year/:month/:day/:title.html
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title.html
 
  
