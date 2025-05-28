@@ -7,7 +7,7 @@ plugins:
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-paginate
-paginate: 5            # posts per page
+paginate: 2           # posts per page
 paginate_path: "/page/:num/"
 
 google_analytics: [Your Google Analytics tracking ID]
