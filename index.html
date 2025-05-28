@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AI News • cleverhack.com</title>
+  <style>
+    body{font:16px/1.4 system-ui;max-width:700px;margin:auto;padding:1rem}
+    article{margin:0 0 1rem;border-bottom:1px solid #ccc}
+    time{color:#666;font-size:.8em}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-rss/dist/rss.global.min.js"></script>
+</head>
+<body>
+  <h1>AI Headlines</h1>
+  <div id="feed"></div>
+  <script>
+    const feeds=['https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'];
+    feeds.forEach(url=>{
+      new RSS(url,{
+        limit:5,
+        ssl:true,
+        callback:()=>console.log('Loaded',url),
+        // beforeRender lets you inject manual overrides here
+        // beforeParse lets you add tag-based filtering
+        // See docs: https://github.com/sdepold/vanilla-rss
+      }).render('#feed');
+    });
+  </script>
+</body>
+</html>
