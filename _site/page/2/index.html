@@ -71,75 +71,86 @@
         <h1 class="site-title">Clever AI News</h1>
         <p class="site-description">Curated news about Artificial Intelligence for 2025</p>
         <nav class="site-nav">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/archive" class="nav-link">Archive</a>
+          <a href="/CleverAINews/" class="nav-link">Home</a>
+          <a href="/CleverAINews/about/" class="nav-link">About</a>
+          <a href="/CleverAINews/archive/" class="nav-link">Archive</a>
+          <a href="/CleverAINews/feed.xml" class="nav-link rss-link">
+            <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+            RSS
+          </a>
         </nav>
       </div>
     </header>
 
     <div class="container">
       <section id="main_content">
-        <main class="site-content">
-  
-    <article class="post-preview">
-      <h2><a href="/tech/ai/2025/05/23/Sample23.html">Sample posts 523</a></h2>
-      <div class="post-meta">
-        <time datetime="2025-05-23T11:00:00-07:00">May 23, 2025</time>
-      </div>
-      <div class="post-excerpt">
-        Your summary and link here.
+        <link rel="stylesheet" href="/CleverAINews/assets/css/style.css">
 
-      </div>
-    </article>
+<main class="site-content">
   
+  
+  
+    <div class="year-section">
+      
+      
+      
+        <div class="month-section">
+          <h3 class="date-header">2025 - May</h3>
+          <ul class="post-list">
+            
+              <li>
+                <span class="post-date">23</span>
+                <a href="/CleverAINews/tech/ai/2025/05/23/Sample23.html">Sample posts 523</a>
+                <div class="post-excerpt">
+                  Your summary and link here.
+
+                </div>
+              </li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+
+  <div class="rss-feeds">
+    <h2>Latest AI News from Around the Web</h2>
+    <div class="feed-grid">
+      <div class="feed-container">
+        <h3>MIT Technology Review</h3>
+        <div class="feed-content">
+          <iframe src="https://rss.app/embed/v1/wall/5nP8Q9XzYwKjLmNp" frameborder="0" style="width: 100%; height: 200px;"></iframe>
+        </div>
+      </div>
+      
+      <div class="feed-container">
+        <h3>AI News</h3>
+        <div class="feed-content">
+          <iframe src="https://rss.app/embed/v1/wall/7vWxYzA1B2C3D4E5" frameborder="0" style="width: 100%; height: 200px;"></iframe>
+        </div>
+      </div>
+      
+      <div class="feed-container">
+        <h3>Nature AI</h3>
+        <div class="feed-content">
+          <iframe src="https://rss.app/embed/v1/wall/9mNpQrS1T2U3V4W5" frameborder="0" style="width: 100%; height: 200px;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <nav class="pagination">
     
-      <a href="/" class="previous">← Previous</a>
+      <a href="/CleverAINews/" class="previous">← Previous</a>
     
     <span class="page-number">Page 2 of 2</span>
     
   </nav>
 </main>
-
-<style>
-.post-preview {
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border: 1px solid #333;
-}
-
-.post-meta {
-  color: #666;
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 0;
-  gap: 1rem;
-}
-
-.pagination a {
-  color: #00ff00;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid #00ff00;
-}
-
-.pagination a:hover {
-  background: #00ff00;
-  color: #000;
-}
-
-.page-number {
-  color: #666;
-}
-</style>
 
       </section>
     </div>
@@ -154,9 +165,9 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/archive">Archive</a></li>
+            <li><a href="/CleverAINews/">Home</a></li>
+            <li><a href="/CleverAINews/about/">About</a></li>
+            <li><a href="/CleverAINews/archive/">Archive</a></li>
           </ul>
         </div>
         
@@ -278,6 +289,21 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
+    }
+
+    .rss-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rss-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rss-link:hover .rss-icon {
+      stroke: #000;
     }
     </style>
   </body>

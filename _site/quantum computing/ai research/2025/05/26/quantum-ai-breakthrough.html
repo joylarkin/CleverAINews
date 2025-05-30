@@ -75,9 +75,17 @@
         <h1 class="site-title">Clever AI News</h1>
         <p class="site-description">Curated news about Artificial Intelligence for 2025</p>
         <nav class="site-nav">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/archive" class="nav-link">Archive</a>
+          <a href="/CleverAINews/" class="nav-link">Home</a>
+          <a href="/CleverAINews/about/" class="nav-link">About</a>
+          <a href="/CleverAINews/archive/" class="nav-link">Archive</a>
+          <a href="/CleverAINews/feed.xml" class="nav-link rss-link">
+            <svg class="rss-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+            RSS
+          </a>
         </nav>
       </div>
     </header>
@@ -242,9 +250,9 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/archive">Archive</a></li>
+            <li><a href="/CleverAINews/">Home</a></li>
+            <li><a href="/CleverAINews/about/">About</a></li>
+            <li><a href="/CleverAINews/archive/">Archive</a></li>
           </ul>
         </div>
         
@@ -366,6 +374,21 @@
         grid-template-columns: 1fr;
         text-align: center;
       }
+    }
+
+    .rss-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .rss-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rss-link:hover .rss-icon {
+      stroke: #000;
     }
     </style>
   </body>

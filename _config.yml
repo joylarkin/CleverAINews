@@ -10,11 +10,9 @@ plugins:
 # Feed Settings
 feed:
   path: feed.xml
-  categories: true
   limit: 20
   description: "Latest AI news and updates from Clever AI News"
   author: "Clever AI News"
-  categories: true
   excerpt: true
   excerpt_separator: <!--more-->
 
