@@ -9,13 +9,11 @@ paginate: 5
   
   {% for year in posts_by_year %}
     <div class="year-section">
-      <h2>{{ year.name }}</h2>
-      
       {% assign posts_by_month = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
       
       {% for month in posts_by_month %}
         <div class="month-section">
-          <h3>{{ month.name }}</h3>
+          <h3 class="date-header">{{ year.name }} - {{ month.name }}</h3>
           <ul class="post-list">
             {% for post in month.items %}
               <li>
@@ -74,20 +72,15 @@ paginate: 5
   margin-bottom: 3rem;
 }
 
-.year-section h2 {
+.date-header {
   color: #00ff00;
+  margin-bottom: 1rem;
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 .month-section {
   margin-bottom: 2rem;
-}
-
-.month-section h3 {
-  color: #00ff00;
-  margin-bottom: 1rem;
 }
 
 .post-list {
