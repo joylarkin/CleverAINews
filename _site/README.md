@@ -1,0 +1,2 @@
+# CleverAINews
+News repo
