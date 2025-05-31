@@ -14,3 +14,9 @@
 header h1:before {
   content: none !important;
 } 
+
+header .site-title:before,
+header h1:before {
+  content: none !important;
+  display: none !important;
+} 
