@@ -3,9 +3,9 @@
 	"file": "style.css",
 	"sources": [
 		"style.scss",
-		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-99726-j8ohf/_sass/jekyll-theme-hacker.scss",
-		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-99726-j8ohf/_sass/rouge-base16-dark.scss",
-		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-99726-j8ohf/_sass/_default_colors.scss"
+		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-281-v3p92v/_sass/jekyll-theme-hacker.scss",
+		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-281-v3p92v/_sass/rouge-base16-dark.scss",
+		"../../../../private/var/folders/31/lwr8bbb91xvb09nmdzq9bnzw0000gn/T/jekyll-remote-theme-20250530-281-v3p92v/_sass/_default_colors.scss"
 	],
 	"sourcesContent": [
 		"@import 'jekyll-theme-hacker';\n",
