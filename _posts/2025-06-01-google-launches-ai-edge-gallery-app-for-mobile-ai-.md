@@ -7,4 +7,5 @@ summary: Google's AI Edge Gallery app allows users to run AI models from Hugging
   offering privacy and convenience without needing internet access, though performance
   varies by device.
 title: Google Launches AI Edge Gallery App for Mobile AI Models
+categories: [AI News, Google]
 ---
