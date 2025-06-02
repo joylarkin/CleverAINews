@@ -10,4 +10,6 @@ title: Google Launches AI Edge Gallery App for Mobile AI Models
 categories: [AI News, Google]
 ---
 
+<!-- Post body for Google launches AI Edge Gallery app. -->
+
 
