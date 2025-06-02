@@ -5,9 +5,9 @@ permalink: /about/
 ---
 
 <div class="about-content">
-  <h1>About Clever AI News</h1>
+  <h1>About Eolas</h1>
   
-  <p>Welcome to Clever AI News, your curated source for the latest developments in Artificial Intelligence for 2025. Our mission is to provide clear, accurate, and insightful coverage of AI advancements, breakthroughs, and their impact on society.</p>
+  <p>Welcome to Eolas, your curated source for the latest developments in Artificial Intelligence for 2025. Our mission is to provide clear, accurate, and insightful coverage of AI advancements, breakthroughs, and their impact on society.</p>
 
   <h2>What We Cover</h2>
   <ul>

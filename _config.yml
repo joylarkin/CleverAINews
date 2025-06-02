@@ -1,4 +1,4 @@
-title: Clever AI News
+title: Eolas
 description: Curated news about Artificial Intelligence for 2025
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
@@ -11,8 +11,8 @@ plugins:
 feed:
   path: feed.xml
   limit: 20
-  description: "Latest AI news and updates from Clever AI News"
-  author: "Clever AI News"
+  description: "Latest AI news and updates from Eolas"
+  author: "Eolas"
   excerpt: true
   excerpt_separator: <!--more-->
 
@@ -25,14 +25,11 @@ baseurl: "/CleverAINews"
 
 # Social Media
 twitter:
-  username: cleverainews # Replace with your Twitter handle
+  username: joy # Replace with your Twitter handle
   card: summary_large_image
 
 # Site Author
-author:
-  name: Clever AI News
-  email: contact@example.com # Replace with your contact email
-  twitter: cleverainews # Replace with your Twitter handle
+author: Eolas
 
 # Default SEO Settings
 defaults:
@@ -42,7 +39,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Clever AI News"
+      author: "Eolas AI"
       image: "/assets/images/default-social.jpg" # You'll need to create this image
       share: true
 

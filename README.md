@@ -1,2 +1,2 @@
 # CleverAINews
-News repo
+News repo for Eolas

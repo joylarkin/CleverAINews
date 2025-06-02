@@ -2,7 +2,7 @@
 layout: post
 title: "OpenAI Announces GPT-5 with Revolutionary Capabilities"
 date: 2025-05-28
-author: Clever AI News
+author: Eolas
 categories: [AI News, OpenAI]
 ---
 
