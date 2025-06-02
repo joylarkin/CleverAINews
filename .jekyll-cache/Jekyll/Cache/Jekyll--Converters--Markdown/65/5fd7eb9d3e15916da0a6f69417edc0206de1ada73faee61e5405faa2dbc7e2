@@ -1,0 +1,134 @@
+I"Ê<div class="archive-content">
+  <h1>Article Archive</h1>
+  
+  
+  
+  
+    <div class="year-section">
+      <h2>2025</h2>
+      
+      
+      
+      
+        <div class="month-section">
+          <h3>June</h3>
+          <ul class="post-list">
+            
+              <li>
+                <span class="post-date">01</span>
+                <a href="/CleverAINews/ai%20news/google/2025/06/01/google-launches-ai-edge-gallery-app-for-mobile-ai.html">Google Launches AI Edge Gallery App for Mobile AI Models</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+        <div class="month-section">
+          <h3>May</h3>
+          <ul class="post-list">
+            
+              <li>
+                <span class="post-date">28</span>
+                <a href="/CleverAINews/ai%20news/openai/2025/05/28/gpt-5-announcement.html">OpenAI Announces GPT-5 with Revolutionary Capabilities</a>
+              </li>
+            
+              <li>
+                <span class="post-date">27</span>
+                <a href="/CleverAINews/research/ai/2025/05/27/testpost1.html">Sample posts</a>
+              </li>
+            
+              <li>
+                <span class="post-date">27</span>
+                <a href="/CleverAINews/ai%20ethics/policy/2025/05/27/ai-ethics-guidelines.html">Global AI Ethics Guidelines Released by United Nations</a>
+              </li>
+            
+              <li>
+                <span class="post-date">26</span>
+                <a href="/CleverAINews/llms/ai/2025/05/26/AnotherOne.html">Sample posts 526</a>
+              </li>
+            
+              <li>
+                <span class="post-date">26</span>
+                <a href="/CleverAINews/quantum%20computing/ai%20research/2025/05/26/quantum-ai-breakthrough.html">Quantum AI Breakthrough: New Algorithm Shows Promise</a>
+              </li>
+            
+              <li>
+                <span class="post-date">23</span>
+                <a href="/CleverAINews/tech/ai/2025/05/23/Sample23.html">Sample posts 523</a>
+              </li>
+            
+          </ul>
+        </div>
+      
+    </div>
+  
+</div>
+
+<style>
+.archive-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.archive-content h1 {
+  color: #00ff00;
+  margin-bottom: 2rem;
+}
+
+.year-section {
+  margin-bottom: 3rem;
+}
+
+.year-section h2 {
+  color: #00ff00;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.month-section {
+  margin-bottom: 2rem;
+}
+
+.month-section h3 {
+  color: #00ff00;
+  margin-bottom: 1rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-list li {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+.post-list li:hover {
+  background: #1a1a1a;
+  border-color: #00ff00;
+}
+
+.post-date {
+  color: #666;
+  margin-right: 1rem;
+  min-width: 2rem;
+}
+
+.post-list a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.post-list a:hover {
+  color: #00ff00;
+}
+</style>
+
+:ET

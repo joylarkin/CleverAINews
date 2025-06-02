@@ -24,6 +24,18 @@ layout: default
     {{ content }}
   </div>
 
+  {% if page.summary %}
+    <div class="post-summary">
+      <strong>Summary:</strong>
+      <p>{{ page.summary }}</p>
+    </div>
+  {% endif %}
+  {% if page.external_url %}
+    <div class="post-external-link">
+      <a href="{{ page.external_url }}" target="_blank" rel="noopener" class="external-link-btn">Read More &rarr;</a>
+    </div>
+  {% endif %}
+
   <footer class="post-footer">
     <nav class="post-navigation">
       {% if page.previous.url %}
@@ -34,6 +46,11 @@ layout: default
       {% endif %}
     </nav>
   </footer>
+  {% if page.id and (page.admin or site.admin) %}
+    <div class="post-id" style="font-size:0.8rem;color:#888;margin-top:2rem;">
+      <strong>ID:</strong> {{ page.id }}
+    </div>
+  {% endif %}
 </article>
 
 <style>
@@ -114,5 +131,34 @@ layout: default
 .post-navigation a:hover {
   background: #00ff00;
   color: #000;
+}
+
+.post-summary {
+  background: #111;
+  border-left: 4px solid #00ff00;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.post-external-link {
+  margin-bottom: 2rem;
+}
+
+.external-link-btn {
+  display: inline-block;
+  background: #00ff00;
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.external-link-btn:hover {
+  background: #000;
+  color: #00ff00;
+  border: 1px solid #00ff00;
 }
 </style> 
