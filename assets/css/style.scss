@@ -20,3 +20,10 @@ header h1:before {
   content: none !important;
   display: none !important;
 } 
+
+.post-list li {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: #f9f9f9;
+} 
