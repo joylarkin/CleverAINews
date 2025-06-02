@@ -3,27 +3,29 @@
 Generate a Jekyll-ready Markdown post from a URL.
 
 Flow:
-  1. Fetch URL, strip boiler-plate HTML, keep first 2 000 chars of text.
-  2. Ask OpenAI for up to three {title, summary} JSON objects.
-  3. Let the user pick one; abort cleanly if nothing returned.
-  4. Write _posts/YYYY-MM-DD-slug.md with YAML front-matter.
-  5. Stage the file via `git add` so it’s ready to commit.
+1. Fetch the URL, strip boiler-plate HTML, keep the first 1 500 characters of visible text.
+2. Ask OpenAI for up to three `{title, summary}` JSON objects.
+3. Let the user pick one; exit gracefully if the model returns no usable choices.
+4. Write `_posts/YYYY-MM-DD-slug.md` with YAML front-matter.
+5. Stage the file with `git add` so it’s ready to commit.
 
-Requirements (install inside *your* venv):
-  python3 -m pip install requests readability-lxml python-frontmatter "openai>=1.0"
+Install these once inside *your* active virtual-environment:
+    python3 -m pip install requests "urllib3<2" readability-lxml python-frontmatter "openai>=1.0"
 
-The script assumes $OPENAI_API_KEY is set in your environment.
+The script expects an environment variable `OPENAI_API_KEY`.
 """
-import sys, re, datetime, json, textwrap, uuid, pathlib, subprocess, warnings
+from __future__ import annotations
+
+import json, sys, re, datetime, textwrap, uuid, pathlib, subprocess, warnings
 from typing import List, Dict
 
-import requests, readability, frontmatter
-from openai import OpenAI
+import requests, readability, frontmatter   # third-party
+from openai import OpenAI                   # SDK ≥ 1.0
 from openai._exceptions import OpenAIError
 
-# ---------------------------------------------------------------------------
-# Utilities
-# ---------------------------------------------------------------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# helpers
+# ──────────────────────────────────────────────────────────────────────────────
 
 def slugify(text: str, max_len: int = 50) -> str:
     """Convert a title to a URL-safe slug."""
@@ -31,12 +33,12 @@ def slugify(text: str, max_len: int = 50) -> str:
     return slug[:max_len] or "post"
 
 
-def ask_llm(plain_text: str, model: str = "gpt-4o", temperature: float = 0.3) -> List[Dict[str, str]]:
-    """Return up to three candidate dicts with keys title / summary."""
+def ask_llm(content: str, model: str = "gpt-4o", temperature: float = 0.3) -> List[Dict[str, str]]:
+    """Return a list of candidate headline/summary dicts."""
     system_msg = (
         "You are an editor for an AI-news link-blog. "
         "Return JSON: [{title: str, summary: str}] (max 3 items). "
-        "Title \u2264 80 chars, summary \u2264 40 words."
+        "Title ≤ 80 chars, summary ≤ 40 words."
     )
     client = OpenAI()
     try:
@@ -44,7 +46,7 @@ def ask_llm(plain_text: str, model: str = "gpt-4o", temperature: float = 0.3) ->
             model=model,
             messages=[
                 {"role": "system", "content": system_msg},
-                {"role": "user", "content": plain_text},
+                {"role": "user", "content": content},
             ],
             temperature=temperature,
         )
@@ -53,27 +55,26 @@ def ask_llm(plain_text: str, model: str = "gpt-4o", temperature: float = 0.3) ->
 
     raw = resp.choices[0].message.content.strip()
     try:
-        options = json.loads(raw)
+        options: List[Dict[str, str]] = json.loads(raw)
     except json.JSONDecodeError:
-        sys.exit("❌  Model did not return valid JSON:\n" + raw)
+        sys.exit("❌  Model reply wasn’t valid JSON:\n" + raw)
 
     if not options:
         sys.exit("❌  Model returned zero options. Try a different URL or shorter text.")
-
     return options
 
-# ---------------------------------------------------------------------------
-# Main script
-# ---------------------------------------------------------------------------
+# ──────────────────────────────────────────────────────────────────────────────
+# main
+# ──────────────────────────────────────────────────────────────────────────────
 
-def main():
+def main() -> None:
     if len(sys.argv) != 2 or sys.argv[1].startswith("-h"):
         print("Usage: ./generate_post.py <url>")
         sys.exit(1)
 
     url = sys.argv[1]
 
-    # 1️⃣ fetch & clean the article
+    # 1️⃣ fetch & clean
     try:
         html = requests.get(url, timeout=20).text
     except Exception as e:
@@ -81,39 +82,42 @@ def main():
 
     article_html = readability.Document(html).summary()
     plain_text = re.sub(r"<[^>]+>", "", article_html)
-    plain_text = plain_text[:2000]  # keep prompt small
 
-    # 2️⃣ ask the LLM
+    if len(plain_text) < 100:
+        sys.exit("❌  Extracted text looks empty; the page may require login. Try a different URL.")
+
+    plain_text = plain_text[:1500]  # keep prompt small enough for the model
+
+    # 2️⃣ ask OpenAI
     options = ask_llm(plain_text)
 
-    # 3️⃣ present options & picker
+    # 3️⃣ display choices
     for i, opt in enumerate(options, 1):
         print(f"\n[{i}] {opt['title']}\n   {textwrap.fill(opt['summary'], 80)}")
 
     try:
         choice = int(input(f"\nPick 1-{len(options)} (0 = abort): "))
     except ValueError:
-        sys.exit("Aborted (non-numeric input)")
+        sys.exit("Aborted – non-numeric input.")
 
     if choice < 1 or choice > len(options):
         sys.exit("Aborted.")
 
     chosen = options[choice - 1]
 
-    # 4️⃣ write the Markdown post
+    # 4️⃣ write Markdown post
     today = datetime.date.today()
     slug = slugify(chosen["title"])
     fname = f"_posts/{today:%Y-%m-%d}-{slug}.md"
 
     post = frontmatter.Post(
-        "",  # empty body; you can edit later if desired
+        "",  # body is empty; edit later if desired
         title=chosen["title"],
         date=today.isoformat(),
         link=url,
         summary=chosen["summary"],
         id=str(uuid.uuid4()),
     )
-
     pathlib.Path(fname).write_text(frontmatter.dumps(post), encoding="utf-8")
 
     # 5️⃣ stage with git
@@ -122,7 +126,6 @@ def main():
 
 
 if __name__ == "__main__":
-    # Silence urllib3 LibreSSL warnings if any remain
+    # silence urllib3 LibreSSL warnings (useful on macOS system Python)
     warnings.filterwarnings("ignore", category=UserWarning, module="urllib3")
-    main()
-    
+    main() 
